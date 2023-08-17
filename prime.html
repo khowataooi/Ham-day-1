@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      input[type="number"] {
+        appearance: textfield;
+        -moz-appearance: textfield;
+      }
+    </style>
+  </head>
+  <body>
+    <input id="num" type="number" />
+    <p id="result"></p>
+    <script>
+      document.getElementById("num").addEventListener("input", (e) => {
+        const num = e.target.value;
+        const result = document.getElementById("result");
+        let count = 0;
+        if (num == 0) {
+          result.innerHTML = `${num} không là số nguyên tố`;
+        } else {
+          for (let i = 0; i <= num; i++) {
+            if (num % i == 0) {
+              count++;
+            }
+            if (count == 2) {
+              result.innerHTML = `${num} là số nguyên tố`;
+            } else {
+              result.innerHTML = `${num} không là số nguyên tố`;
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

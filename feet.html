@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        display: block;
+      }
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      input[type="number"] {
+        appearance: textfield;
+        -moz-appearance: textfield;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="feet">Feet: </label><input type="number" id="feet" />
+    <label for="meters">Meters: </label><input type="number" id="meters" />
+    <script>
+      document.getElementById("feet").addEventListener("input", (e) => {
+        let feet = e.target.value;
+        let meters = feet * 0.3048;
+        document.getElementById("meters").value = meters.toFixed(3);
+      });
+      document.getElementById("meters").addEventListener("input", (e) => {
+        let meters = e.target.value;
+        let feet = meters * 3.2809;
+        document.getElementById("feet").value = feet.toFixed(3);
+      });
+    </script>
+  </body>
+</html>
